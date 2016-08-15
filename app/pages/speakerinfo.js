@@ -56,13 +56,13 @@ export default () => (
                     <SubHeader>Cost coverage</SubHeader>
 
                     <p>
-                        If you sucessfully applied for cost coverage, please send us a copy of your receipts <b>after</b> the conference to <a href="mailto:program@java.no">program@java.no</a>. If we agreed upon covering your expenses, we have reserved a room at <a href="http://www.thonhotels.com/de/hotels/lander/norwegen/oslo/thon-hotel-terminus/">Thon Hotel Terminus</a> for you. The room is prepayed and reserved on your name.
+                        If you sucessfully applied for cost coverage, please <a href="mailto:program@java.no">send us</a> a copy of your receipts <b>after</b> the conference. If we agreed upon covering your expenses, we have reserved a room at <a href="http://www.thonhotels.com/de/hotels/lander/norwegen/oslo/thon-hotel-terminus/">Thon Hotel Terminus</a> for you. The room is prepayed and reserved on your name.
                     </p>
                     
                     <SubHeader>Visa invitation</SubHeader>
 
                     <p>
-                        If you require an invitation for your visum, please contact us at <a href="mailto:program@java.no">program@java.no</a> and provide a brief instruction on any formailities of the invitation that you require.
+                        If you require an invitation for a Schengen visa, please <a href="mailto:program@java.no">contact us</a> and include a brief summary of formal requirements.
                     </p>
                 </Content>
             </Block>
