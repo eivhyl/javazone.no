@@ -56,7 +56,7 @@ export default () => (
                     <SubHeader>Cost coverage</SubHeader>
 
                     <p>
-                        If you sucessfully applied for cost coverage, please <a href="mailto:program@java.no">send us</a> a copy of your receipts <b>after</b> the conference. If we agreed upon covering your expenses, we have reserved a room at <a href="http://www.thonhotels.com/de/hotels/lander/norwegen/oslo/thon-hotel-terminus/">Thon Hotel Terminus</a> for you. The room is pre-paid and reserved in your name.
+                        If you successfully applied for cost coverage, please <a href="mailto:program@java.no">send us</a> a copy of your receipts <b>after</b> the conference. If we agreed upon covering your expenses, we have reserved a room at <a href="http://www.thonhotels.com/de/hotels/lander/norwegen/oslo/thon-hotel-terminus/">Thon Hotel Terminus</a> for you. The room is pre-paid and reserved in your name.
                     </p>
                     
                     <SubHeader>Visa invitation</SubHeader>
@@ -119,7 +119,7 @@ export default () => (
                         <dt className='technical-stuff__term'>Connectors</dt>
                         <dd className='technical-stuff__data'>The projectors support VGA, HDMI and DVI. If you need displayport or mini displayport, you probably want to bring your own adapter. Don’t hesitate to contact technicians or the staff if you have any problems.</dd>
                         <dt className='technical-stuff__term'>Internet</dt>
-                        <dd className='technical-stuff__data'>What’s a conference without internet? The whole of Oslo Spektrum is equiped with wireless network (SSID: JavaZone 2016), and all auditoriums have cable network.</dd>
+                        <dd className='technical-stuff__data'>What’s a conference without internet? The whole of Oslo Spektrum is equipped with wireless network (SSID: JavaZone 2016), and all auditoriums have cable network.</dd>
                         <dt className='technical-stuff__term'>Microphones</dt>
                         <dd className='technical-stuff__data'>Each room will have two headsets and one handheld microphone.</dd>
                         <dt className='technical-stuff__term'>Audio</dt>
