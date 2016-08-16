@@ -56,7 +56,7 @@ export default () => (
                     <SubHeader>Cost coverage</SubHeader>
 
                     <p>
-                        If you sucessfully applied for cost coverage, please <a href="mailto:program@java.no">send us</a> a copy of your receipts <b>after</b> the conference. If we agreed upon covering your expenses, we have reserved a room at <a href="http://www.thonhotels.com/de/hotels/lander/norwegen/oslo/thon-hotel-terminus/">Thon Hotel Terminus</a> for you. The room is prepayed and reserved on your name.
+                        If you sucessfully applied for cost coverage, please <a href="mailto:program@java.no">send us</a> a copy of your receipts <b>after</b> the conference. If we agreed upon covering your expenses, we have reserved a room at <a href="http://www.thonhotels.com/de/hotels/lander/norwegen/oslo/thon-hotel-terminus/">Thon Hotel Terminus</a> for you. The room is pre-paid and reserved in your name.
                     </p>
                     
                     <SubHeader>Visa invitation</SubHeader>
