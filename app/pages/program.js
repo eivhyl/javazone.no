@@ -60,14 +60,23 @@ const getTransformedSessions = (r) => compose(
 function getDefaultSettings() {
     try {
         const settings = localStorage.getItem(SETTINGS_KEY);
-        if (!settings) {
-            return defaultSettings;
-        }
+        try {
+            // Atob throws exception if string is empty
+            const urlSettings = atob(window.location.search.split(`?${SETTINGS_KEY}=`, 2)[1]);
+            const parsedSettings = JSON.parse(urlSettings);
 
-        return JSON.parse(settings);
-    } catch (e) {
-        return defaultSettings;
-    }
+            if (parsedSettings.myprogram.length > 0) {
+                localStorage.setItem(SETTINGS_KEY, urlSettings);
+                return parsedSettings;
+            }
+        } catch (e) {}
+
+        if (settings)  {
+            return JSON.parse(settings);
+        }
+    } catch (e) {}
+
+    return defaultSettings;
 }
 
 function saveSettings(settings) {
@@ -195,7 +204,7 @@ const EmptyMyProgram = () => (
     </div>
 );
 
-const HasProgram = (sessions, state, toggleFavorite, setAll, setNorwegian, setEnglish, setMyProgram) => (
+const HasProgram = (sessions, state, toggleFavorite, setAll, setNorwegian, setEnglish, setMyProgram, getShareableLink, copyShareableLink) => (
     <div>
         <div className='days'>
             <div className='days__header'>Days</div>
@@ -213,8 +222,16 @@ const HasProgram = (sessions, state, toggleFavorite, setAll, setNorwegian, setEn
                 <button className={`filters__toggle filters__toggle--${state.show === 'en' ? 'enabled' : 'disabled'}`} onClick={setEnglish}>English</button>
                 <button className={`filters__toggle filters__toggle--${state.show === 'my' ? 'enabled' : 'disabled'}`} onClick={setMyProgram}>My Program</button>
             </div>
-        </div>
 
+            <div className={`program__share ${state.show === 'my' ? 'enabled' : 'hidden'}`}>
+                <div className='filters__header'>Share your program!</div>
+                <div className='program__share__items filters__filters'>
+                    {/* Setting value like this will make it called every time the state updates, which is kinda very bad, but also kind of convenient! */}
+                    <input id="copy-program" type='text' readOnly='readonly' value={getShareableLink()} onClick={e => { e.target.select(); }}/>
+                    <button className='filters__toggle' onClick={e => { copyShareableLink(); e.target.innerHTML = 'Copied!'; }}>Copy to clipboard!</button>
+                </div>
+            </div>
+        </div>
         <ul className='sessions'>
             {showEmptyMyProgram(state) ? EmptyMyProgram() : sessions.map((session, id) => Day(session, id, state, toggleFavorite))}
         </ul>
@@ -231,6 +248,21 @@ const Program = React.createClass({
         if (this.props.sessions.length === 0) {
             this.props.getSessions();
         }
+    },
+
+    copyShareableLink() {
+        const copyTextarea = document.getElementById('copy-program');
+        copyTextarea.select();
+
+        try {
+            document.execCommand('copy');
+        } catch (err) {
+            console.log('Copy command not supported');
+        }
+    },
+
+    getShareableLink() {
+        return `${window.location.href}?${SETTINGS_KEY}=${btoa(localStorage.getItem(SETTINGS_KEY))}`;
     },
 
     setAll() {
@@ -262,7 +294,7 @@ const Program = React.createClass({
         console.log(this.props.isFetching);
         const content = this.props.isFetching
             ? Loading()
-            : HasProgram(getTransformedSessions([])(this.props.sessions), this.state, this.toggleFavorite, this.setAll, this.setNorwegian, this.setEnglish, this.setMyProgram);
+            : HasProgram(getTransformedSessions([])(this.props.sessions), this.state, this.toggleFavorite, this.setAll, this.setNorwegian, this.setEnglish, this.setMyProgram, this.getShareableLink, this.copyShareableLink);
 
         saveSettings(this.state);
 
